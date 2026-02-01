@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For Sumanth 💖</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #ff9a9e, #fad0c4);
+      text-align: center;
+      color: white;
+      padding: 30px;
+    }
+
+    .box {
+      background: rgba(255,255,255,0.25);
+      padding: 30px;
+      border-radius: 20px;
+      max-width: 550px;
+      margin: auto;
+    }
+
+    h1 {
+      font-size: 2.2em;
+    }
+
+    .question {
+      margin-top: 20px;
+      text-align: left;
+    }
+
+    label {
+      display: block;
+      margin: 10px 0;
+      cursor: pointer;
+    }
+
+    button {
+      background: #ff4d6d;
+      color: white;
+      padding: 12px 28px;
+      border: none;
+      border-radius: 25px;
+      font-size: 1em;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .emoji {
+      font-size: 3em;
+      margin-top: 15px;
+      animation: shake 0.5s;
+    }
+
+    @keyframes shake {
+      0% { transform: translateX(0); }
+      25% { transform: translateX(-5px); }
+      50% { transform: translateX(5px); }
+      75% { transform: translateX(-5px); }
+      100% { transform: translateX(0); }
+    }
+
+    .heart {
+      font-size: 3em;
+      animation: pulse 1s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="box">
+
+  <h1>Hey Sumanth 💕</h1>
+  <p>Answer honestly 😌💖</p>
+
+  <!-- QUESTION 1 -->
+  <div class="question" id="q1">
+    <p><b>1. When did we fall in love?</b></p>
+    <label><input type="radio" name="q1"> February 14th</label>
+    <label><input type="radio" name="q1" id="q1correct"> September 28th </label>
+    <label><input type="radio" name="q1"> July 10th</label>
+    <label><input type="radio" name="q1"> December 1st</label>
+    <button onclick="next1()">Next 💖</button>
+    <div id="emoji1" class="emoji hidden">😢</div>
+  </div>
+
+  <!-- QUESTION 2 -->
+  <div class="question hidden" id="q2">
+    <p><b>2. First gift you gave me before our relationship?</b></p>
+    <label><input type="radio" name="q2" id="q2correct"> Earrings </label>
+    <label><input type="radio" name="q2"> Chocolate</label>
+    <label><input type="radio" name="q2"> Teddy Bear</label>
+    <label><input type="radio" name="q2"> Ring</label>
+    <button onclick="next2()">Next 💕</button>
+    <div id="emoji2" class="emoji hidden">😢</div>
+  </div>
+
+  <!-- QUESTION 3 -->
+  <div class="question hidden" id="q3">
+    <p><b>3. What is your first choice?</b></p>
+    <label><input type="radio" name="q3" id="q3correct"> Me </label>
+    <label><input type="radio" name="q3" id="q3bike"> Your Bike 🏍️</label>
+    <button onclick="next3()">Next ❤️</button>
+    <div id="emoji3" class="emoji hidden">😢</div>
+    <div id="emoji3bike" class="emoji hidden">😡</div>
+  </div>
+
+  <!-- PROPOSAL -->
+  <div class="hidden" id="proposal">
+    <div class="heart">❤️</div>
+    <h1>Sumanth, will you be my Valentine? 💖</h1>
+    <button onclick="yes()">YES 💕</button>
+    <button onclick="no()">NO 😢</button>
+  </div>
+
+</div>
+
+<script>
+  function next1() {
+    if (document.getElementById("q1correct").checked) {
+      document.getElementById("q1").classList.add("hidden");
+      document.getElementById("q2").classList.remove("hidden");
+    } else {
+      showEmoji("emoji1");
+    }
+  }
+
+  function next2() {
+    if (document.getElementById("q2correct").checked) {
+      document.getElementById("q2").classList.add("hidden");
+      document.getElementById("q3").classList.remove("hidden");
+    } else {
+      showEmoji("emoji2");
+    }
+  }
+
+  function next3() {
+    if (document.getElementById("q3correct").checked) {
+      document.getElementById("q3").classList.add("hidden");
+      document.getElementById("proposal").classList.remove("hidden");
+    } else if (document.getElementById("q3bike").checked) {
+      showEmoji("emoji3bike");
+    } else {
+      showEmoji("emoji3");
+    }
+  }
+
+  function showEmoji(id) {
+    const emoji = document.getElementById(id);
+    emoji.classList.remove("hidden");
+    setTimeout(() => {
+      emoji.classList.add("hidden");
+    }, 2000); // emoji disappears after 2 seconds
+  }
+
+  function yes() {
+    alert("YAY!!! 💖 I love you so much, Sumanth!");
+  }
+
+  function no() {
+    alert("Wrong choice 😏 Try again!");
+  }
+</script>
+
+</body>
+</html>
